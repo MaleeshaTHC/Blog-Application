@@ -6,8 +6,11 @@ import Blogs from './components/Blogs'
 import UserBlogs from './components/UserBlogs'
 import BlogDetail from './components/BlogDetails'
 import AddBlog from './components/AddBlog'
+import { useSelector } from "react-redux";
 
 function App() {
+  const isLoggedIn = useSelector(state => state.isLoggedIn)
+  console.log(isLoggedIn)
   return <React.Fragment>
     <header>
       <Header />
