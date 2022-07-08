@@ -29,8 +29,8 @@ const Header = () => {
         <Typography variant="h4">
           BlogsApp
         </Typography>
-        <Box display="flex">
-          <Tabs value={value} onChange={(e, val) => setValue(val)}>
+        <Box display="flex" marginLeft={'auto'} marginRight= "auto">
+          <Tabs textColor="inherit" value={value} onChange={(e, val) => setValue(val)}>
             <Tab label="All Blogs" />
             <Tab label="My Blogs" />
           </Tabs>
