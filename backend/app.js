@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-// import blogRouter from "./routes/blog-routes";
+import blogRouter from "./routes/blog-routes";
 import router from "./routes/user-routes";
 // import cors from "cors";
 const app = express();
@@ -10,8 +10,8 @@ app.use("/api/user", router)
 
 // app.use(cors());
 
-// app.use("/api/user", router);
-// app.use("/api/blog", blogRouter);
+app.use("/api/user", router);
+app.use("/api/blog", blogRouter);
 mongoose
   .connect(
     "mongodb+srv://BlogWebsite:BlogWebsite@cluster0.4x97p.mongodb.net/Blog?retryWrites=true&w=majority"
