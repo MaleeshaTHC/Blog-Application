@@ -3,7 +3,7 @@ import { Box } from "@mui/system";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-const labelStyles = { mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" };
+const labelStyles = { mb: 1, mt: 2, fontSize: "20px", fontWeight: "bold", textAlign: "left" };
 
 const BlogDetail = () => {
   const navigate = useNavigate();
@@ -62,25 +62,26 @@ const BlogDetail = () => {
       {inputs && (
         <form onSubmit={handleSubmit}>
           <Box
-            border={3}
+            border={1}
             borderColor="linear-gradient(90deg, rgba(58,75,180,1) 2%, rgba(116,49,110,1) 36%, rgba(2,0,161,1) 73%, rgba(69,92,252,1) 100%)"
-            borderRadius={10}
+            borderRadius={5}
             boxShadow="10px 10px 20px #ccc"
             padding={3}
             margin={"auto"}
             marginTop={3}
             display="flex"
             flexDirection={"column"}
-            width={"80%"}
+            width={"60%"}
           >
             <Typography
               fontWeight={"bold"}
               padding={3}
               color="grey"
-              variant="h2"
+              variant="h3"
               textAlign={"center"}
             >
-              Post Your Blog
+              Edit Advertisement 
+              <br></br>
             </Typography>
             <InputLabel sx={labelStyles}>Title</InputLabel>
             <TextField
@@ -114,6 +115,7 @@ const BlogDetail = () => {
               margin="auto"
               variant="outlined"
             />
+            <br></br><br></br>
 
             <Button
               sx={{ mt: 2, borderRadius: 4 }}
@@ -121,7 +123,7 @@ const BlogDetail = () => {
               color="warning"
               type="submit"
             >
-              Submit
+              Update
             </Button>
           </Box>
         </form>

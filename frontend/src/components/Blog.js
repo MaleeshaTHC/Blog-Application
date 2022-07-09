@@ -33,11 +33,11 @@ const Blog = ({ title, description, full_name, contact, imageURL, userName, isUs
       .then(() => navigate("/blogs"));
   };
   return (
-    <div>
+    <div >
       {" "}
       <Card
         sx={{
-          width: "30%",
+          width: "50%",
           margin: "auto",
           mt: 2,
           padding: 2,
@@ -92,7 +92,7 @@ const Blog = ({ title, description, full_name, contact, imageURL, userName, isUs
             <br></br>
             {contact}
             <br></br>
-            {email}
+            <a href="">{email}</a>
           </Typography>
         </CardContent>
       </Card>

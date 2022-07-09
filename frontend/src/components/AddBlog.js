@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useStyles } from "./utils";
 
-const labelStyles = { mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" };
+const labelStyles = { mb: 1, mt: 2, fontSize: "20px", fontWeight: "bold", textAlign: "left" };
 const AddBlog = () => {
   const classes = useStyles();
   const navigate = useNavigate();
@@ -46,26 +46,27 @@ const AddBlog = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <Box
-          border={3}
+          border={1}
           borderColor="linear-gradient(90deg, rgba(58,75,180,1) 2%, rgba(116,49,110,1) 36%, rgba(2,0,161,1) 73%, rgba(69,92,252,1) 100%)"
-          borderRadius={10}
+          borderRadius={5}
           boxShadow="10px 10px 20px #ccc"
           padding={3}
           margin={"auto"}
           marginTop={3}
           display="flex"
           flexDirection={"column"}
-          width={"80%"}
+          width={"60%"}
         >
           <Typography
             className={classes.font}
             fontWeight={"bold"}
             padding={3}
             color="grey"
-            variant="h2"
+            variant="h3"
             textAlign={"center"}
           >
-            Post Your Blog
+            Create Advertisement
+            <br></br>
           </Typography>
           <InputLabel className={classes.font} sx={labelStyles}>
             Title
@@ -122,13 +123,14 @@ const AddBlog = () => {
             margin="auto"
             variant="outlined"
           />
+          <br></br><br></br>
           <Button
             sx={{ mt: 2, borderRadius: 4 }}
             variant="contained"
             color="warning"
             type="submit"
           >
-            Submit
+            Create
           </Button>
         </Box>
       </form>
