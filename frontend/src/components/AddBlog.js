@@ -21,24 +21,24 @@ const AddBlog = () => {
       [e.target.name]: e.target.value,
     }));
   };
-  // const sendRequest = async () => {
-  //   const res = await axios
-  //     .post("http://localhost:4000/api/blog/add", {
-  //       title: inputs.title,
-  //       description: inputs.description,
-  //       image: inputs.imageURL,
-  //       user: localStorage.getItem("userId"),
-  //     })
-  //     .catch((err) => console.log(err));
-  //   const data = await res.data;
-  //   return data;
-  // };
+  const sendRequest = async () => {
+    const res = await axios
+      .post("http://localhost:4000/api/blog/add", {
+        title: inputs.title,
+        description: inputs.description,
+        image: inputs.imageURL,
+        user: localStorage.getItem("userId"),
+      })
+      .catch((err) => console.log(err));
+    const data = await res.data;
+    return data;
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputs);
-    // sendRequest()
-    //   .then((data) => console.log(data))
-    //   .then(() => navigate("/blogs"));
+    sendRequest()
+      .then((data) => console.log(data))
+      // .then(() => navigate("/blogs"));
   };
 
   return (
