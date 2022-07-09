@@ -10,11 +10,11 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-// import { authActions } from "../store";
+import { authActions } from "../store";
 // import { useStyles } from "./utils";
 const Header = () => {
   // const classes = useStyles();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
 
   const [value, setValue] = useState();
@@ -38,7 +38,7 @@ const Header = () => {
         <Box display="flex" marginLeft="auto">          
           {!isLoggedIn && <> <Button LinkComponent={Link} to="/auth" variant="contained" sx={{ margin: 1, borderRadius: 10 }} color='warning'>Login</Button>
           <Button LinkComponent={Link} to="/auth" variant="contained" sx={{ margin: 1, borderRadius: 10 }} color='warning'>Signup</Button> </>}
-          {isLoggedIn && <Button LinkComponent={Link} to="/auth" variant="contained" sx={{ margin: 1, borderRadius: 10 }} color='warning'>Logout</Button>}
+          {isLoggedIn && <Button onClick={() => dispatch(authActions.logout())} LinkComponent={Link} to="/auth" variant="contained" sx={{ margin: 1, borderRadius: 10 }} color='warning'>Logout</Button>}
         </Box>
       </Toolbar>
     </AppBar>
