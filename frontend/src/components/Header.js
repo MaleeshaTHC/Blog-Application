@@ -19,7 +19,7 @@ const Header = () => {
 
   const [value, setValue] = useState();
   return (
-    <AppBar
+      <AppBar
       position="sticky"
       sx={{
         background:
@@ -96,7 +96,7 @@ const Header = () => {
           )}
         </Box>
       </Toolbar>
-    </AppBar>
+    </AppBar>    
   );
 };
 
