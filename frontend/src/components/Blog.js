@@ -1,9 +1,38 @@
 import React from 'react'
-import {Card, CardHeader, Avatar, CardMedia, CardContent, Typography} from '@mui/material'
+import {
+  Avatar,
+  Box,
+  Card,
+  CardContent,
+  CardHeader,
+  CardMedia,
+  IconButton,
+  Typography,
+} from "@mui/material";
+import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import { useNavigate } from "react-router-dom";
 
-const Blog = ({title, description, imageURL, userName}) => {
+const Blog = ({title, description, imageURL, userName, isUser, id}) => {
+  const navigate = useNavigate();
+  const handleEdit = () => {
+    navigate(`/myBlogs/${id}`);
+  };
+  // const deleteRequest = async () => {
+  //   const res = await axios
+  //     .delete(`http://localhost:5000/api/blog/${id}`)
+  //     .catch((err) => console.log(err));
+  //   const data = await res.data;
+  //   return data;
+  // };
+  // const handleDelete = () => {
+  //   deleteRequest()
+  //     .then(() => navigate("/"))
+  //     .then(() => navigate("/blogs"));
+  // };
   return (
-    <div><Card sx={{
+    <div>
+    <Card sx={{
       width: "40%",
       margin: "auto",
       mt: 2,
@@ -13,6 +42,16 @@ const Blog = ({title, description, imageURL, userName}) => {
         boxShadow: "10px 10px 20px #ccc",
       },
     }}>
+      {isUser && (
+          <Box display="flex">
+            <IconButton onClick={handleEdit} sx={{ marginLeft: "auto" }}>
+              <ModeEditOutlineIcon color="warning" />
+            </IconButton>
+            <IconButton >
+              <DeleteForeverIcon color="error" />
+            </IconButton>
+          </Box>
+        )}
     <CardHeader
       avatar={
         <Avatar sx={{ bgcolor: 'red'}} aria-label="recipe">
@@ -29,7 +68,9 @@ const Blog = ({title, description, imageURL, userName}) => {
       alt="Paella dish"
     />
     <CardContent>
-      <Typography variant="body2" color="text.secondary">
+      <Typography variant="body2" color="text.secondary">        
+        <b>{userName}</b>
+        {':'}
         {description}
       </Typography>
     </CardContent>
