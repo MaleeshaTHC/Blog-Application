@@ -15,7 +15,7 @@ export const getAllUser = async (req, res, next) => {
 };
 
 export const signup = async (req, res, next) => {
-  const {name, email, password} = req.body;
+  const { name, email, password } = req.body;
   let existingUser;
   try {
     existingUser = await User.findOne({ email });
@@ -32,7 +32,7 @@ export const signup = async (req, res, next) => {
   const user = new User({
     name,
     email,
-    password : hashedPassword,
+    password: hashedPassword,
     blogs: [],
   });
 
@@ -53,7 +53,7 @@ export const login = async (req, res, next) => {
     return console.log(err);
   }
   if (!existingUser) {
-    return res.status(404).json({ message: "couldn't Find User By This Email" });
+    return res.status(404).json({ message: "Couldnt Find User By This Email" });
   }
 
   const isPasswordCorrect = bcrypt.compareSync(password, existingUser.password);
@@ -62,5 +62,5 @@ export const login = async (req, res, next) => {
   }
   return res
     .status(200)
-    .json({ message: "Login Successful", user: existingUser });
+    .json({ message: "Login Successfull", user: existingUser });
 };

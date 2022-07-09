@@ -6,8 +6,8 @@ import { authActions } from "../store";
 import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const naviagte = useNavigate();
+  const dispath = useDispatch();
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
@@ -40,13 +40,13 @@ const Auth = () => {
     if (isSignup) {
       sendRequest("signup")
         .then((data) => localStorage.setItem("userId", data.user._id))
-        .then(() => dispatch(authActions.login()))
-        .then(() => navigate("/blogs"));
+        .then(() => dispath(authActions.login()))
+        .then(() => naviagte("/blogs"));
     } else {
       sendRequest()
         .then((data) => localStorage.setItem("userId", data.user._id))
-        .then(() => dispatch(authActions.login()))
-        .then(() => navigate("/blogs"));
+        .then(() => dispath(authActions.login()))
+        .then(() => naviagte("/blogs"));
     }
   };
   return (

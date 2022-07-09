@@ -1,11 +1,11 @@
 import express from "express";
 import {
-addBlog,
-deleteBlog,
-getAllBlogs,
-getById,
-getByUserId,
-updateBlog,
+  addBlog,
+  deleteBlog,
+  getAllBlogs,
+  getById,
+  getByUserId,
+  updateBlog,
 } from "../controllers/blog-controller";
 const blogRouter = express.Router();
 

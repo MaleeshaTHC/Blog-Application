@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import Blog from './Blog';
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Blog from "./Blog";
 const UserBlogs = () => {
   const [user, setUser] = useState();
   const id = localStorage.getItem("userId");
@@ -18,6 +17,7 @@ const UserBlogs = () => {
   console.log(user);
   return (
     <div>
+      {" "}
       {user &&
         user.blogs &&
         user.blogs.map((blog, index) => (
@@ -32,7 +32,7 @@ const UserBlogs = () => {
           />
         ))}
     </div>
-  )
-}
+  );
+};
 
-export default UserBlogs
+export default UserBlogs;
