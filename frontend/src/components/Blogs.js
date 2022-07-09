@@ -14,13 +14,15 @@ const Blogs = () => {
   }, [])
   console.log(blogs)
   return (
-    <div>{blogs && blogs.map((blog, index) => (
-    <Blog 
-      title={blog.title} 
-      description={blog.description} 
-      imageURL={blog.imageURL} 
-      userName={blog.user.name} 
-    />))}</div>
+    <div>
+      {blogs && blogs.map((blog, index) => (
+        <Blog 
+          title={blog.title} 
+          description={blog.description} 
+          imageURL={blog.imageURL} 
+          userName={blog.user.name} 
+        />))}
+    </div>
   )
 }
 
