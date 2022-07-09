@@ -27,8 +27,11 @@ const UserBlogs = () => {
             isUser={true}
             title={blog.title}
             description={blog.description}
+            full_name={blog.full_name}
+            contact={blog.contact}
             imageURL={blog.image}
             userName={user.name}
+            email={user.email}
           />
         ))}
     </div>

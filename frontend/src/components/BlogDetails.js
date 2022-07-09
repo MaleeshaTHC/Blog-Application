@@ -30,6 +30,8 @@ const BlogDetail = () => {
       setInputs({
         title: data.blog.title,
         description: data.blog.description,
+        full_name: data.blog.full_name,
+        contact: data.blog.contact
       });
     });
   }, [id]);
@@ -38,6 +40,8 @@ const BlogDetail = () => {
       .put(`http://localhost:4000/api/blog/update/${id}`, {
         title: inputs.title,
         description: inputs.description,
+        full_name: inputs.full_name,
+        contact: inputs.contact
       })
       .catch((err) => console.log(err));
 
@@ -91,6 +95,22 @@ const BlogDetail = () => {
               name="description"
               onChange={handleChange}
               value={inputs.description}
+              margin="auto"
+              variant="outlined"
+            />
+            <InputLabel sx={labelStyles}>full_name</InputLabel>
+            <TextField
+              name="full_name"
+              onChange={handleChange}
+              value={inputs.full_name}
+              margin="auto"
+              variant="outlined"
+            />
+            <InputLabel sx={labelStyles}>Contact</InputLabel>
+            <TextField
+              name="contact"
+              onChange={handleChange}
+              value={inputs.contact}
               margin="auto"
               variant="outlined"
             />

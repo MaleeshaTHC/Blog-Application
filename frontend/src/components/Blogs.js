@@ -24,8 +24,11 @@ const Blogs = () => {
             isUser={localStorage.getItem("userId") === blog.user._id}
             title={blog.title}
             description={blog.description}
+            full_name={blog.full_name}
+            contact={blog.contact}
             imageURL={blog.image}
             userName={blog.user.name}
+            email={blog.user.email}
           />
         ))}
     </div>

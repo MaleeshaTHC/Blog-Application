@@ -14,7 +14,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useStyles } from "./utils";
-const Blog = ({ title, description, imageURL, userName, isUser, id }) => {
+const Blog = ({ title, description, full_name, contact, imageURL, userName, isUser, id, email }) => {
   const classes = useStyles();
   const navigate = useNavigate();
   const handleEdit = () => {
@@ -84,7 +84,15 @@ const Blog = ({ title, description, imageURL, userName, isUser, id }) => {
             variant="body2"
             color="text.secondary"
           >
-            <b>{userName}</b> {": "} {description}
+            <b>{userName}</b> 
+            <br></br><br></br>
+            {description}
+            <br></br><br></br>
+            {full_name}
+            <br></br>
+            {contact}
+            <br></br>
+            {email}
           </Typography>
         </CardContent>
       </Card>

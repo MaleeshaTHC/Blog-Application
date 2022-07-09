@@ -11,6 +11,8 @@ const AddBlog = () => {
   const [inputs, setInputs] = useState({
     title: "",
     description: "",
+    full_name: "",
+    contact: "",
     imageURL: "",
   });
   const handleChange = (e) => {
@@ -24,6 +26,8 @@ const AddBlog = () => {
       .post("http://localhost:4000/api/blog/add", {
         title: inputs.title,
         description: inputs.description,
+        full_name: inputs.full_name,
+        contact: inputs.contact,
         image: inputs.imageURL,
         user: localStorage.getItem("userId"),
       })
@@ -82,6 +86,28 @@ const AddBlog = () => {
             name="description"
             onChange={handleChange}
             value={inputs.description}
+            margin="auto"
+            variant="outlined"
+          />
+          <InputLabel className={classes.font} sx={labelStyles}>
+            Full Name
+          </InputLabel>
+          <TextField
+            className={classes.font}
+            name="full_name"
+            onChange={handleChange}
+            value={inputs.full_name}
+            margin="auto"
+            variant="outlined"
+          />
+          <InputLabel className={classes.font} sx={labelStyles}>
+            Contact
+          </InputLabel>
+          <TextField
+            className={classes.font}
+            name="contact"
+            onChange={handleChange}
+            value={inputs.contact}
             margin="auto"
             variant="outlined"
           />
