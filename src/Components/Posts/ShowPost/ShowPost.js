@@ -76,6 +76,11 @@ function ShowPost(props) {
                     <p className="showblog_content">
                         {`${ToText(
                             props.content.substring(0, 80)
+                        )}...`}<span> <b>...</b></span>
+                    </p>
+                    <p className="showblog_description">
+                        {`${ToText(
+                            props.description.substring(0, 80)
                         )}...`}<span> <b>Read More</b></span>
                     </p>
                 </div>

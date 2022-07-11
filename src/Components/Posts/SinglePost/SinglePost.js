@@ -126,6 +126,7 @@ export class SinglePost extends Component {
                     <img src={post1.imagePath} className="img-fluid" alt="prof" />
                     <div className="text pt-3">
                         <p>{post1.content}</p>
+                        <p>{post1.description}</p>
                     </div>
                 </div>
             </>

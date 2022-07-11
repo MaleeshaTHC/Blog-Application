@@ -51,6 +51,7 @@ checkAuth,
         const post = new Post({
             title: req.body.title,
             content: req.body.content,
+            description: req.body.description,
             imagePath: url + "/images/" + req.file.filename,
             creator: req.userData.userId,
             postDate: req.body.postDate,
@@ -101,6 +102,7 @@ router.put(
             _id: req.body.id,
             title: req.body.title,
             content: req.body.content,
+            description: req.body.description,
             imagePath: imagePath,
             creator: req.userData.userId
         });

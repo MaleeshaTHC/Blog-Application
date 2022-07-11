@@ -11,6 +11,7 @@ export class CreatePost extends Component {
                 id: '',
                 title: '',
                 content: '',
+                description: '',
                 imagePath: '',
                 created: ''
             },
@@ -24,6 +25,7 @@ export class CreatePost extends Component {
             errors: {
                 title: '',
                 content: '',
+                description: '',
                 imagePath: '',
             }
         }
@@ -48,7 +50,7 @@ export class CreatePost extends Component {
                 let post = data.data
                 this.setState({
                     isloading: false,
-                    Post: { ...this.state.Post, id: post._id, title: post.title, content: post.content, imagePath: post.imagePath }
+                    Post: { ...this.state.Post, id: post._id, title: post.title, content: post.content, description: post.description, imagePath: post.imagePath }
                 });
             })
                 .catch(e => {
@@ -109,6 +111,21 @@ export class CreatePost extends Component {
                             : '';
                 }
                 break;
+            case 'description':
+                if (value.length > 0) {
+                    errors.description =
+                        value.length < 20
+                            ? 'description  must be 20 characters long!'
+                            : '';
+                }
+    
+                if (value.length === 0) {
+                    errors.description =
+                        value.length === 0
+                            ? 'Description is required!'
+                            : '';
+                }
+                break;
             case 'imagePath':
                 if (value.length === 0) {
                     errors.imagePath =
@@ -140,6 +157,7 @@ export class CreatePost extends Component {
             formData.append('id', this.state.Post.id);
             formData.append('title', this.state.Post.title);
             formData.append('content', this.state.Post.content);
+            formData.append('description', this.state.Post.description);
             formData.append('image', this.state.Post.imagePath, this.state.Post.title);
             formData.append('postDate', date.toString());
         }
@@ -148,6 +166,7 @@ export class CreatePost extends Component {
                 "id": this.state.Post.id,
                 'title': this.state.Post.title,
                 'content': this.state.Post.content,
+                'descriptiob': this.state.Post.description,
                 'image': this.state.Post.imagePath,
                 'postDate': date.toString()
             }
@@ -188,7 +207,7 @@ export class CreatePost extends Component {
                 })
         }
         this.setState({
-            Post: { ...this.state.Post, title: '', content: '', imagePath: '' }
+            Post: { ...this.state.Post, title: '', content: '', description: '', imagePath: '' }
         });
     }
     render() {
@@ -225,7 +244,7 @@ export class CreatePost extends Component {
             {iserror}
             <div className="container container-short">
                 <form onSubmit={this.mySubmitHandler} className="pt-4">
-                <h3 className="text-center mb-3">Create Post</h3>
+                <h3 className="text-center mb-3">Create Story</h3>
                     <div className="form-group">
                         <label htmlFor="title">Title </label>
                         <input
@@ -244,7 +263,7 @@ export class CreatePost extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="password">Description </label>
+                        <label htmlFor="password">Content </label>
                         <textarea
                             type='text'
                             name='content'
@@ -258,6 +277,22 @@ export class CreatePost extends Component {
 
                         {this.state.errors.content.length > 0 &&
                             <div className="mt-1"><span className='error text-danger'>{this.state.errors.content}</span></div>}
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="password">Description </label>
+                        <textarea
+                            type='text'
+                            name='description'
+                            rows="4"
+                            value={this.state.Post.description}
+                            className={"form-control " + (this.state.errors.description ? 'is-invalid' : '')}
+                            placeholder="Enter the  description"
+                            required="required"
+                            onChange={this.myChangeHandler}
+                        />
+
+                        {this.state.errors.description.length > 0 &&
+                            <div className="mt-1"><span className='error text-danger'>{this.state.errors.description}</span></div>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="password">Image </label>
@@ -275,7 +310,7 @@ export class CreatePost extends Component {
                         <button style={{ marginRight: '15px' }}
                             type='submit'
                             className="btn btn-primary"
-                            disabled={this.state.Post.title && this.state.Post.content && this.state.Post.imagePath
+                            disabled={this.state.Post.title && this.state.Post.content && this.state.Post.description && this.state.Post.imagePath
                                 ? '' : 'disabled'}
                         >
                             Create

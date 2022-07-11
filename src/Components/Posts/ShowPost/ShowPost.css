@@ -42,3 +42,7 @@
 p.showblog_content{
     min-height: 4.5em;
 }
+
+p.showblog_description{
+    min-height: 4.5em;
+}
